@@ -95,6 +95,10 @@ public class RecipeDyeColorNBT implements IRecipe {
 
 	@Override
 	public boolean matches(InventoryCrafting inventoryCrafting, World world) {
+		if (recipeOutput == null) {
+			return false;
+		}
+
 		result = recipeOutput.copy();
 		result.setTagInfo("color", new NBTTagInt(11));
 		for (int i = 0; i <= 3 - recipeWidth; i++) {
